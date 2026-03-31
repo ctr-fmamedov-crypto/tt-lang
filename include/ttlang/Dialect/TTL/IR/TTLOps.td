@@ -819,6 +819,13 @@ defm TTL_Max : TTL_BinaryElementwisePair<"max", "max_tiles",
 defm TTL_Min : TTL_BinaryElementwisePair<"min", "binary_min_tile",
                                          [TTL_InPlaceOpTrait]>;
 
+// Elementwise compare: maps to ttkernel.{gt,lt,eq,ne}_binary_tile (LLK
+// eltwise binary SFPU compare; same family as ttnn.{gt,lt,eq,ne} on device).
+defm TTL_Gt : TTL_BinaryElementwisePair<"gt", "gt_binary_tile">;
+defm TTL_Lt : TTL_BinaryElementwisePair<"lt", "lt_binary_tile">;
+defm TTL_Eq : TTL_BinaryElementwisePair<"eq", "eq_binary_tile">;
+defm TTL_Ne : TTL_BinaryElementwisePair<"ne", "ne_binary_tile">;
+
 
 //===----------------------------------------------------------------------===//
 // Unary Elementwise Operations (Tensor + Tile Ops)
